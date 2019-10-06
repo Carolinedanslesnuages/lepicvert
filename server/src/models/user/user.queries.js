@@ -6,7 +6,7 @@ export const findUserById = async id => {
   return user
 }
 
-export const findUserByEMail = async (email, populatePassword) => {
+export const findUserByEmail = async (email, populatePassword) => {
   const query = User.findOne({ email })
 
   if (populatePassword) {
@@ -16,7 +16,7 @@ export const findUserByEMail = async (email, populatePassword) => {
 }
 
 export const findUserByCredentials = async (email, password) => {
-  const user = await findUserByEMail(email, true)
+  const user = await findUserByEmail(email, true)
   if(!user) {
     undefined
   }
@@ -34,7 +34,7 @@ export const createUser = async (firstName, LastName, email, password, status) =
 }
 
 export const deleteUserByEmail = async email => {
-  const user = await findUserByEMail(email)
+  const user = await findUserByEmail(email)
   if(!user) {
     throw new error('No user found')
   }
