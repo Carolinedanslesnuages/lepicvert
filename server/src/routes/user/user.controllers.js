@@ -1,4 +1,5 @@
-import user from './models/user'
+
+import createUser from '../../models/user'
 
 export async function signUp (req, res) {
 const user = {

@@ -2,4 +2,4 @@ import express from 'express'
 
 const router = express.Router()
 
-router.post('/user/inscription', signUp)
+router.post('user/inscription', signUp)

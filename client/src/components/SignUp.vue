@@ -1,10 +1,18 @@
 <template>
   <div class ="sign-up">
+<<<<<<< HEAD
     <v-form class="sign-up sign-up-form" @submit.prevent="signup">
+=======
+    <v-form v-model="validSignUp" class="sign-up sign-up-form" @submit.prevent="signup">
+>>>>>>> :sparkles: Add Sign up for user
       <h2 class="text--center">Inscription</h2>
 
       <h3 class="text--center">
       </h3>
+<<<<<<< HEAD
+=======
+      *Champs obligatoires
+>>>>>>> :sparkles: Add Sign up for user
       <div class="form-input">
         <v-text-field
         label="Prénom"
@@ -46,6 +54,10 @@
         <v-text-field
         class="t-new-password"
           aria-placeholder="mot de passe"
+<<<<<<< HEAD
+=======
+          :append-icon="showPassword ? 'visibility_off' : 'visibility'"
+>>>>>>> :sparkles: Add Sign up for user
           @click:append="showPassword = !showPassword"
           hint="Au moins 8 caractères"
           label="mot de passe"
@@ -53,7 +65,11 @@
           :rules="passwordRules"
           tabindex="2"
           :type="showPassword ? 'text' : 'password'"
+<<<<<<< HEAD
           v-model="newPassword"
+=======
+          v-model="password"
+>>>>>>> :sparkles: Add Sign up for user
         >
         </v-text-field>
       </div>
@@ -61,20 +77,41 @@
         <v-text-field
           class="t-new-password"
           aria-placeholder="confirmation du mot de passe"
+<<<<<<< HEAD
+=======
+          :append-icon="showPassword ? 'visibility_off' : 'visibility'"
+>>>>>>> :sparkles: Add Sign up for user
           @click:append="showPassword = !showPassword"
           hint="Au moins 8 caractères"
           label="confirmation du mot de passe"
           name="password"
+<<<<<<< HEAD
           :rules="passwordRules"
           tabindex="2"
           :type="showPassword ? 'text' : 'password'"
           v-model="newPassword"
+=======
+          :rules="confirmPasswordRules"
+          tabindex="2"
+          :type="showPassword ? 'text' : 'password'"
+          v-model="confirmPassword"
+>>>>>>> :sparkles: Add Sign up for user
         >
         </v-text-field>
       </div>
 
+<<<<<<< HEAD
       <v-btn>
         Sign Up
+=======
+      <v-btn 
+      type="submit"
+      class="submit-btn"
+      :disabled="isSendingSignUp"
+      :aria-disabled="isSendingSignUp"
+      >
+        M'inscrire
+>>>>>>> :sparkles: Add Sign up for user
       </v-btn>
 
     </v-form>
@@ -83,6 +120,12 @@
 
 <script>
 import Birthday from './Birthday'
+<<<<<<< HEAD
+=======
+import { email as emailRegex , strongEnoughPassword } from '@/util/regex'
+import { SIGNUP_REQUEST } from '@/store'
+
+>>>>>>> :sparkles: Add Sign up for user
 
 
 export default {
@@ -91,17 +134,73 @@ export default {
   },
   data () {
     return {
+<<<<<<< HEAD
+=======
+      lastName: '',
+      firstName: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+      showPassword: false,
+      validSignUp: false,
+      emailRules: [
+        v => v !== '' || ('Veuillez renseigner une adresse email'),
+        v => emailRegex.test(v) || ('Veuillez renseigner une adresse email valide'),
+      ],
+      passwordRules: [
+        value => !!value || ('Veuillez renseigner votre mot de passe'),
+        value => strongEnoughPassword.every(regex => regex.test(value)) ||
+          'Veuillez entrez un mot de passe fort',
+      ],
+      confirmPasswordRules: [
+        value => !!value || ('Veuillez confirmer votre mot de passe'),
+      ],
+>>>>>>> :sparkles: Add Sign up for user
 
     }
   },
 
   computed: {
+<<<<<<< HEAD
     name() {
       return this.data 
+=======
+    isSendingSignUp() {
+      console.log('123')
+      return this.$store.state.user.isSendingSignUp
+>>>>>>> :sparkles: Add Sign up for user
     }
   },
 
   methods: {
+<<<<<<< HEAD
+=======
+    async signup () {
+      if (!this.validSignUp) {
+        return this.$store.dispatch('Veuillez remplir le formulaire ' )
+      }
+      const {
+        lastName,
+        firstName,
+        email,
+        password,
+        confirmPassword,   
+      } = this
+
+      try {
+        const response = await this.$store.dispatch(SIGNUP_REQUEST, {
+          lastName,
+        firstName,
+        email,
+        password,
+        confirmPassword, 
+        })
+        console.log('456')
+      }catch (error) {
+        this.$store.dispatch( ' blabla')
+      }
+    }
+>>>>>>> :sparkles: Add Sign up for user
     
   },
 }
