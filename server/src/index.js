@@ -13,7 +13,7 @@ mongoose.connect(dbConfig.url)
     console.log('Could not connect to MongoDB.');
     process.exit();
 });
-  
+
 // Create a Server
 const PORT = process.env.PORT || 8000
 http.createServer(app).listen(PORT, 'localhost')

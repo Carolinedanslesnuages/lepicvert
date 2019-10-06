@@ -1,16 +1,13 @@
 <template>
-  <div class="home">
-    <HelloWorld msg="Bienvenue sur lePicvert"/>
-  </div>
+  <SignUp />
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue'
+import SignUp from '../components/SignUp';
 
 export default {
-  name: 'home',
   components: {
-    HelloWorld
-  }
-}
+    SignUp,
+  },
+};
 </script>
